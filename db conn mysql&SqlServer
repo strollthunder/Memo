@@ -1,4 +1,4 @@
- 首先，连接数据库的步骤我得说说
+ 首先，连接数据库的步骤:
 
            1.加载一个驱动
 
@@ -6,7 +6,7 @@
 
            3.操作数据
 
-      一、 而我们最常见的问题就是发生在第一步加载驱动这里，JDBC的SQL Server2005驱动是sqljdbc.jar，而 MySQL的则是mysql-connector-java-5.1.2-beta-bin.jar(注意MySQL5.0相对以前的版本有很大的改动，所以以前的有些驱动可能就用不了了，最好采用版本比较新的驱动程序)。
+      一、 而最常见的问题，JDBC的SQL Server2005驱动是sqljdbc.jar，而 MySQL的则是mysql-connector-java-5.1.2-beta-bin.jar(注意MySQL5.0相对以前的版本有很大的改动，所以以前的有些驱动可能就用不了了，最好采用版本比较新的驱动程序)。
 
              注意：你必须把正确的驱动程序放置到你的web应用程序根目录下的WEB-INF/lib目录下
 
@@ -32,4 +32,4 @@
 
              String url="jdbc:mysql://localhost:3306/dbtest"               //此处dbtest指的是数据库名字
 
-     如果这里你的url写的不正确，那么MyEclipse会抛出java.sql.SQLException异常：No suitable driver
+     如果url写的不正确，那么MyEclipse会抛出java.sql.SQLException异常：No suitable driver
