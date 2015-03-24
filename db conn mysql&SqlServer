@@ -1,0 +1,35 @@
+ 首先，连接数据库的步骤我得说说
+
+           1.加载一个驱动
+
+           2.连接数据库
+
+           3.操作数据
+
+      一、 而我们最常见的问题就是发生在第一步加载驱动这里，JDBC的SQL Server2005驱动是sqljdbc.jar，而 MySQL的则是mysql-connector-java-5.1.2-beta-bin.jar(注意MySQL5.0相对以前的版本有很大的改动，所以以前的有些驱动可能就用不了了，最好采用版本比较新的驱动程序)。
+
+             注意：你必须把正确的驱动程序放置到你的web应用程序根目录下的WEB-INF/lib目录下
+
+      SQL Server2005加载驱动的写法：
+
+                Class.forName( "com.microsoft.sqlserver.jdbc.SQLServerDriver"); 
+
+      MySQL加载驱动的写法：
+
+                Class.forName( "com.mysql.jdbc.Driver" );
+
+      注意这里括号里的字符串代表了该驱动的完整类名，必须一字不差的正确书写，其实Class加载的就是你放在你的web应用程序根目录下的WEB-INF/lib目录下的驱动。我们可以用rar压缩工具打开这个工具，可以发现它里面的包层次结构和我们加载的驱动的类名是一致的
+
+ 
+
+二、加载驱动完成之后，就是连接数据库了，在这里有一个很重要的问题就是不同DBMS支持的数据库url的写法有所差异。
+
+      SQL Server2005如下：
+
+             String url="jdbc:sqlserver://localhost:1125;databaseName=dbtest"
+
+      MySQL如下：
+
+             String url="jdbc:mysql://localhost:3306/dbtest"               //此处dbtest指的是数据库名字
+
+     如果这里你的url写的不正确，那么MyEclipse会抛出java.sql.SQLException异常：No suitable driver
